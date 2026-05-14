@@ -60,7 +60,7 @@ section{position:relative;z-index:1}
 
 .hero-photo{position:relative;display:flex;justify-content:center}
 .photo-wrap{position:relative;width:340px;height:420px}
-.photo-frame{width:100%;height:100%;border-radius:24px;position:relative;z-index:2;border:2px solid rgba(167,139,250,.25);overflow:hidden}
+.photo-frame{width:100%;height:100%;border-radius:24px;object-fit:cover;object-position:top center;position:relative;z-index:2;border:2px solid rgba(167,139,250,.25);overflow:hidden}
 .portrait-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;background:radial-gradient(circle at 35% 20%,rgba(103,232,249,.26),transparent 30%),linear-gradient(135deg,rgba(167,139,250,.28),rgba(244,114,182,.16) 48%,rgba(103,232,249,.2));box-shadow:inset 0 0 80px rgba(10,10,15,.35)}
 .portrait-placeholder .initials{font-family:'Playfair Display',serif;font-size:5.5rem;font-weight:700;line-height:1;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.8rem}
 .portrait-placeholder .portrait-name{font-size:.82rem;color:var(--text);letter-spacing:.16em;text-transform:uppercase}
@@ -218,7 +218,8 @@ footer span{color:var(--accent)}
   <div class="hero-photo fade-in" style="animation-delay:.2s">
     <div class="photo-wrap">
       <div class="photo-glow"></div>
-      <div class="photo-frame portrait-placeholder" role="img" aria-label="Ananthalakshmi Biju">
+      <img src="photo.jpeg" class="photo-frame" alt="Ananthalakshmi Biju" onerror="const fallback=this.nextElementSibling;fallback.hidden=false;this.replaceWith(fallback)">
+      <div class="photo-frame portrait-placeholder" role="img" aria-label="Ananthalakshmi Biju" hidden>
         <div class="initials">AB</div>
         <div class="portrait-name">Ananthalakshmi Biju</div>
         <div class="portrait-role">English Literature</div>
