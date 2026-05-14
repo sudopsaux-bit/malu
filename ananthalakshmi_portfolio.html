@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Ananthalakshmi Biju — MA English Literature. Portfolio showcasing skills, education, and services.">
+<title>Ananthalakshmi Biju | MA English Literature</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0a0a0f;
+  --bg2:#111118;
+  --bg3:#16161f;
+  --text:#f0eee8;
+  --muted:#8a8898;
+  --accent:#a78bfa;
+  --accent2:#67e8f9;
+  --accent3:#f472b6;
+  --border:rgba(167,139,250,0.18);
+  --glass:rgba(255,255,255,0.04);
+  --grad:linear-gradient(135deg,#a78bfa,#67e8f9);
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;overflow-x:hidden;line-height:1.7}
+
+/* BACKGROUND FX */
+.orb{position:fixed;border-radius:50%;filter:blur(80px);pointer-events:none;z-index:0;opacity:.18}
+.orb1{width:500px;height:500px;background:#a78bfa;top:-100px;left:-100px}
+.orb2{width:400px;height:400px;background:#67e8f9;bottom:10%;right:-80px}
+.orb3{width:300px;height:300px;background:#f472b6;top:50%;left:40%}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,15,0.75);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center}
+.logo{font-family:'Playfair Display',serif;font-size:1.3rem;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:0.02em}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:.85rem;letter-spacing:.05em;text-transform:uppercase;transition:.3s;font-weight:500}
+.nav-links a:hover{color:var(--accent)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.hamburger span{display:block;width:22px;height:2px;background:var(--muted);border-radius:2px;transition:.3s}
+.mobile-menu{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(10,10,15,.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:1.5rem 2rem;z-index:99;flex-direction:column;gap:1.2rem}
+.mobile-menu.open{display:flex}
+.mobile-menu a{color:var(--muted);text-decoration:none;font-size:1rem;letter-spacing:.05em;text-transform:uppercase;transition:.3s;font-weight:500;padding:.5rem 0;border-bottom:1px solid var(--border)}
+.mobile-menu a:hover{color:var(--accent)}
+
+section{position:relative;z-index:1}
+
+/* HERO */
+#hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;max-width:1200px;margin:0 auto;padding:6rem 2rem 4rem;gap:4rem}
+.hero-text .tag{display:inline-block;padding:.35rem 1rem;background:rgba(167,139,250,.12);border:1px solid rgba(167,139,250,.3);border-radius:100px;font-size:.78rem;color:var(--accent);letter-spacing:.08em;text-transform:uppercase;margin-bottom:1.5rem}
+.hero-text h1{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,4rem);line-height:1.15;margin-bottom:1rem}
+.hero-text h1 span{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-text p{color:var(--muted);font-size:1.05rem;max-width:440px;margin-bottom:2rem;line-height:1.8}
+.btns{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-primary{padding:.75rem 1.75rem;background:var(--grad);border:none;border-radius:50px;color:#0a0a0f;font-weight:700;font-family:'DM Sans',sans-serif;font-size:.9rem;cursor:pointer;letter-spacing:.03em;transition:.3s;text-decoration:none;display:inline-block}
+.btn-primary:hover{opacity:.85;transform:translateY(-2px)}
+.btn-outline{padding:.75rem 1.75rem;background:transparent;border:1px solid var(--border);border-radius:50px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:.9rem;cursor:pointer;letter-spacing:.03em;transition:.3s;text-decoration:none;display:inline-block}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
+
+.hero-photo{position:relative;display:flex;justify-content:center}
+.photo-wrap{position:relative;width:340px;height:420px}
+.photo-frame{width:100%;height:100%;border-radius:24px;object-fit:cover;object-position:top center;position:relative;z-index:2;border:2px solid rgba(167,139,250,.25)}
+.photo-glow{position:absolute;inset:-2px;border-radius:26px;background:var(--grad);z-index:1;opacity:.6;filter:blur(12px)}
+.photo-badge{position:absolute;bottom:-20px;right:-20px;z-index:3;background:var(--bg3);border:1px solid var(--border);border-radius:16px;padding:.75rem 1.2rem;backdrop-filter:blur(10px)}
+.photo-badge .big{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--accent);font-weight:700}
+.photo-badge small{display:block;font-size:.72rem;color:var(--muted);letter-spacing:.05em}
+.float-chip{position:absolute;top:30px;left:-30px;z-index:3;background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:12px;padding:.5rem .9rem;backdrop-filter:blur(10px);font-size:.78rem;color:var(--accent2);display:flex;align-items:center;gap:.4rem}
+.dot{width:7px;height:7px;border-radius:50%;background:#22c55e;flex-shrink:0;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* ABOUT */
+#about{max-width:1100px;margin:0 auto;padding:6rem 2rem}
+.section-label{display:flex;align-items:center;gap:.8rem;margin-bottom:.8rem}
+.section-label::before{content:'';width:30px;height:1px;background:var(--grad)}
+.section-label span{font-size:.75rem;text-transform:uppercase;letter-spacing:.15em;color:var(--accent);font-weight:500}
+h2.section-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);margin-bottom:1.5rem;line-height:1.2}
+.about-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:4rem;align-items:center}
+.about-text p{color:var(--muted);line-height:1.9;margin-bottom:1.2rem}
+.info-cards{display:grid;gap:.8rem}
+.info-card{background:var(--glass);border:1px solid var(--border);border-radius:16px;padding:1rem 1.3rem;display:flex;align-items:center;gap:1rem;transition:.3s}
+.info-card:hover{border-color:rgba(167,139,250,.4);background:rgba(167,139,250,.06)}
+.info-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.info-card .label{font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.info-card .val{font-size:.9rem;color:var(--text);font-weight:500}
+
+/* SKILLS */
+#skills{padding:6rem 2rem;background:linear-gradient(180deg,transparent,rgba(167,139,250,.04),transparent)}
+.skills-inner{max-width:1100px;margin:0 auto}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.2rem;margin-top:3rem}
+.skill-card{background:var(--glass);border:1px solid var(--border);border-radius:20px;padding:1.5rem;transition:.4s;position:relative;overflow:hidden}
+.skill-card:hover{border-color:rgba(167,139,250,.4);transform:translateY(-4px)}
+.skill-icon{font-size:1.6rem;margin-bottom:.8rem;display:block}
+.skill-card h3{font-size:1rem;font-weight:500;margin-bottom:.4rem}
+.skill-card p{font-size:.83rem;color:var(--muted);line-height:1.6}
+.skill-bar{height:3px;background:rgba(255,255,255,.06);border-radius:10px;margin-top:1rem;overflow:hidden}
+.skill-fill{height:100%;border-radius:10px;background:var(--grad);transform:scaleX(0);transform-origin:left;transition:transform 1.4s cubic-bezier(.16,1,.3,1)}
+.skill-fill.animated{transform:scaleX(1)}
+
+/* EDUCATION */
+#education{max-width:900px;margin:0 auto;padding:6rem 2rem}
+.timeline{position:relative;margin-top:3rem}
+.timeline::before{content:'';position:absolute;left:20px;top:0;bottom:0;width:1px;background:linear-gradient(180deg,var(--accent),var(--accent2),transparent)}
+.tl-item{display:flex;gap:2rem;margin-bottom:2.5rem;align-items:flex-start}
+.tl-dot{width:40px;height:40px;border-radius:50%;background:var(--bg3);border:2px solid var(--accent);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.72rem;font-weight:700;color:var(--accent)}
+.tl-body{background:var(--glass);border:1px solid var(--border);border-radius:16px;padding:1.2rem 1.5rem;flex:1;transition:.3s}
+.tl-body:hover{border-color:rgba(167,139,250,.35)}
+.tl-year{font-size:.75rem;color:var(--accent2);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.3rem}
+.tl-body h3{font-size:1rem;font-weight:500;margin-bottom:.25rem}
+.tl-body p{font-size:.83rem;color:var(--muted)}
+
+/* HOBBIES */
+#hobbies{max-width:1100px;margin:0 auto;padding:4rem 2rem 6rem}
+.hobbies-grid{display:flex;flex-wrap:wrap;gap:1rem;margin-top:2rem}
+.hobby-chip{background:var(--glass);border:1px solid var(--border);border-radius:50px;padding:.6rem 1.3rem;font-size:.88rem;color:var(--text);display:flex;align-items:center;gap:.5rem;transition:.3s}
+.hobby-chip:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
+
+/* SERVICES */
+#services{padding:6rem 2rem;background:var(--bg2)}
+.services-inner{max-width:1100px;margin:0 auto}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.2rem;margin-top:3rem}
+.srv-card{background:var(--bg3);border:1px solid var(--border);border-radius:20px;padding:1.8rem 1.5rem;transition:.4s}
+.srv-card:hover{border-color:rgba(103,232,249,.3);transform:translateY(-5px)}
+.srv-icon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;font-size:1.4rem}
+.srv-card h3{font-size:1rem;font-weight:500;margin-bottom:.5rem}
+.srv-card p{font-size:.83rem;color:var(--muted);line-height:1.7}
+
+/* CONTACT */
+#contact{max-width:820px;margin:0 auto;padding:6rem 2rem}
+.contact-wrap{background:var(--glass);border:1px solid var(--border);border-radius:28px;padding:3.5rem 3rem;text-align:center}
+.contact-wrap h2{font-family:'Playfair Display',serif;font-size:2.2rem;margin-bottom:.8rem}
+.contact-wrap > p{color:var(--muted);margin-bottom:2.5rem;max-width:480px;margin-left:auto;margin-right:auto}
+.contact-links{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-bottom:2rem}
+.contact-link{display:flex;align-items:center;gap:.6rem;padding:.7rem 1.4rem;background:var(--bg3);border:1px solid var(--border);border-radius:50px;text-decoration:none;color:var(--text);font-size:.88rem;transition:.3s}
+.contact-link:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
+.address-box{background:rgba(167,139,250,.06);border:1px solid rgba(167,139,250,.15);border-radius:16px;padding:1rem 1.5rem;display:inline-flex;align-items:center;gap:.6rem;font-size:.85rem;color:var(--muted)}
+.declaration{margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border)}
+.declaration p{color:var(--muted);font-size:.8rem;font-style:italic;margin-bottom:.5rem}
+.declaration .sig{color:var(--accent);font-family:'Playfair Display',serif;font-size:1.1rem;font-style:italic}
+
+/* FOOTER */
+footer{text-align:center;padding:2rem;color:var(--muted);font-size:.82rem;border-top:1px solid var(--border);position:relative;z-index:1}
+footer span{color:var(--accent)}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.fade-in{animation:fadeUp .8s ease both}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  #hero{grid-template-columns:1fr;text-align:center;padding-top:7rem;gap:2.5rem}
+  .hero-photo{order:-1}
+  .photo-wrap{width:260px;height:320px}
+  .hero-text p{margin:0 auto 2rem}
+  .btns{justify-content:center}
+  .about-grid{grid-template-columns:1fr}
+  .float-chip{display:none}
+  .hamburger{display:flex}
+  .nav-links{display:none}
+  .contact-wrap{padding:2rem 1.5rem}
+}
+@media(max-width:480px){
+  nav{padding:.75rem 1.2rem}
+  #about,#skills,#education,#hobbies,#services,#contact{padding-left:1.2rem;padding-right:1.2rem}
+  .photo-badge{right:-10px;bottom:-10px}
+  .address-box{text-align:left;font-size:.78rem}
+}
+</style>
+</head>
+<body>
+
+<!-- Background Orbs -->
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
+<div class="orb orb3"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Ananthalakshmi</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMobile()">About</a>
+  <a href="#skills" onclick="closeMobile()">Skills</a>
+  <a href="#education" onclick="closeMobile()">Education</a>
+  <a href="#services" onclick="closeMobile()">Services</a>
+  <a href="#contact" onclick="closeMobile()">Contact</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-text fade-in">
+    <div class="tag">✦ Available for Opportunities</div>
+    <h1>Ananthalakshmi<br><span>Biju</span></h1>
+    <p>MA in English Literature — a passionate literary scholar with expertise in analytical thinking, communication, and the transformative power of language.</p>
+    <div class="btns">
+      <a href="#contact" class="btn-primary">Get in Touch</a>
+      <a href="#education" class="btn-outline">View Credentials</a>
+    </div>
+  </div>
+  <div class="hero-photo fade-in" style="animation-delay:.2s">
+    <div class="photo-wrap">
+      <div class="photo-glow"></div>
+      <!-- IMPORTANT: Replace the src below with the actual path to the photo file -->
+      <img src="photo.jpg" class="photo-frame" alt="Ananthalakshmi Biju" onerror="this.style.background='linear-gradient(135deg,#a78bfa22,#67e8f922)';this.style.display='flex'">
+      <div class="photo-badge">
+        <div class="big">MA</div>
+        <small>English Literature</small>
+      </div>
+      <div class="float-chip">
+        <div class="dot"></div>
+        Open to Work
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div>
+      <div class="section-label"><span>About Me</span></div>
+      <h2 class="section-title">Where Words<br>Meet Wisdom</h2>
+      <div class="about-text">
+        <p>A highly motivated Postgraduate in English Literature with a deep passion for literary analysis, academic writing, and effective communication. Trained in the art of close reading and critical thinking across centuries of literary tradition.</p>
+        <p>I bring strong team leadership abilities, honest and confident professionalism, and a commitment to continuous learning — seeking a dynamic role where literary expertise meets real-world impact.</p>
+      </div>
+    </div>
+    <div class="info-cards">
+      <div class="info-card reveal">
+        <div class="info-icon" style="background:rgba(167,139,250,.12)">📍</div>
+        <div><div class="label">Location</div><div class="val">Idukki, Kerala</div></div>
+      </div>
+      <div class="info-card reveal" style="transition-delay:.08s">
+        <div class="info-icon" style="background:rgba(103,232,249,.12)">📞</div>
+        <div><div class="label">Phone</div><div class="val">+91 6235836901</div></div>
+      </div>
+      <div class="info-card reveal" style="transition-delay:.16s">
+        <div class="info-icon" style="background:rgba(244,114,182,.12)">✉️</div>
+        <div><div class="label">Email</div><div class="val" style="font-size:.8rem;word-break:break-all">ananthalakshmibiju1@gmail.com</div></div>
+      </div>
+      <div class="info-card reveal" style="transition-delay:.24s">
+        <div class="info-icon" style="background:rgba(167,139,250,.12)">🌐</div>
+        <div><div class="label">Languages</div><div class="val">English & Malayalam</div></div>
+      </div>
+      <div class="info-card reveal" style="transition-delay:.32s">
+        <div class="info-icon" style="background:rgba(34,197,94,.12)">🎂</div>
+        <div><div class="label">Date of Birth</div><div class="val">11 March 2002 · Female</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="skills-inner">
+    <div class="section-label"><span>Core Skills</span></div>
+    <h2 class="section-title">What I Bring<br>to the Table</h2>
+    <div class="skills-grid">
+      <div class="skill-card reveal">
+        <span class="skill-icon">🔍</span>
+        <h3>Strong Analytical Skills</h3>
+        <p>Deep textual analysis, critical interpretation, and systematic thinking applied across literary and professional contexts.</p>
+        <div class="skill-bar"><div class="skill-fill" data-width=".92"></div></div>
+      </div>
+      <div class="skill-card reveal" style="transition-delay:.08s">
+        <span class="skill-icon">🎙️</span>
+        <h3>Effective Communication</h3>
+        <p>Articulate written and verbal communicator with the ability to convey complex ideas clearly and persuasively.</p>
+        <div class="skill-bar"><div class="skill-fill" data-width=".95"></div></div>
+      </div>
+      <div class="skill-card reveal" style="transition-delay:.16s">
+        <span class="skill-icon">👥</span>
+        <h3>Team Leadership</h3>
+        <p>Proven ability to lead, motivate, and collaborate within academic and co-curricular team environments.</p>
+        <div class="skill-bar"><div class="skill-fill" data-width=".88"></div></div>
+      </div>
+      <div class="skill-card reveal" style="transition-delay:.24s">
+        <span class="skill-icon">💻</span>
+        <h3>Word Processing & Data Entry</h3>
+        <p>Certified 6-month training in professional word processing and accurate data entry techniques.</p>
+        <div class="skill-bar"><div class="skill-fill" data-width=".85"></div></div>
+      </div>
+      <div class="skill-card reveal" style="transition-delay:.32s">
+        <span class="skill-icon">✍️</span>
+        <h3>Academic & Creative Writing</h3>
+        <p>Proficient in research-based academic writing, essays, and creative literary composition.</p>
+        <div class="skill-bar"><div class="skill-fill" data-width=".93"></div></div>
+      </div>
+      <div class="skill-card reveal" style="transition-delay:.4s">
+        <span class="skill-icon">🤝</span>
+        <h3>Honesty & Integrity</h3>
+        <p>Highly confident and principled professional with a commitment to ethical conduct and reliability.</p>
+        <div class="skill-bar"><div class="skill-fill" data-width="1"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-label"><span>Education</span></div>
+  <h2 class="section-title">Academic<br>Journey</h2>
+  <div class="timeline">
+    <div class="tl-item reveal">
+      <div class="tl-dot">MA</div>
+      <div class="tl-body">
+        <div class="tl-year">2023 – 2025</div>
+        <h3>M.A. in English Literature</h3>
+        <p>S S M College Rajakkad — Postgraduate specialization in literary theory, criticism, and research methodology.</p>
+      </div>
+    </div>
+    <div class="tl-item reveal" style="transition-delay:.1s">
+      <div class="tl-dot">BA</div>
+      <div class="tl-body">
+        <div class="tl-year">2021 – 2023</div>
+        <h3>B.A. in English Literature</h3>
+        <p>S S M College Rajakkad — Undergraduate foundation in classical, modern, and postcolonial literature.</p>
+      </div>
+    </div>
+    <div class="tl-item reveal" style="transition-delay:.2s">
+      <div class="tl-dot">💻</div>
+      <div class="tl-body">
+        <div class="tl-year">Certificate</div>
+        <h3>Word Processing & Data Entry</h3>
+        <p>6-month professional certification in office productivity and digital documentation skills.</p>
+      </div>
+    </div>
+    <div class="tl-item reveal" style="transition-delay:.3s">
+      <div class="tl-dot">+2</div>
+      <div class="tl-body">
+        <div class="tl-year">2019 – 2020</div>
+        <h3>Higher Secondary Education</h3>
+        <p>Govt. G H S S Bisonvalley — Higher secondary schooling with academic distinction.</p>
+      </div>
+    </div>
+    <div class="tl-item reveal" style="transition-delay:.4s">
+      <div class="tl-dot">10</div>
+      <div class="tl-body">
+        <div class="tl-year">2017 – 2018</div>
+        <h3>S.S.L.C</h3>
+        <p>St. Sebastian High School Pottankad — Secondary school certificate with strong academic foundation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOBBIES -->
+<section id="hobbies">
+  <div class="section-label"><span>Personal Interests</span></div>
+  <h2 class="section-title">Beyond the<br>Classroom</h2>
+  <div class="hobbies-grid">
+    <div class="hobby-chip reveal">📚 Reading Books</div>
+    <div class="hobby-chip reveal" style="transition-delay:.08s">🎵 Listening to Music</div>
+    <div class="hobby-chip reveal" style="transition-delay:.16s">🍳 Cooking</div>
+    <div class="hobby-chip reveal" style="transition-delay:.24s">🌍 Exploring Different Cuisines</div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-inner">
+    <div class="section-label"><span>What I Offer</span></div>
+    <h2 class="section-title">Services &<br>Expertise</h2>
+    <div class="services-grid">
+      <div class="srv-card reveal">
+        <div class="srv-icon" style="background:rgba(167,139,250,.12)">📖</div>
+        <h3>Content Writing</h3>
+        <p>Crafting engaging, research-backed articles, essays, and academic content with literary precision.</p>
+      </div>
+      <div class="srv-card reveal" style="transition-delay:.08s">
+        <div class="srv-icon" style="background:rgba(103,232,249,.12)">🎓</div>
+        <h3>English Tutoring</h3>
+        <p>Academic coaching in English language, literature analysis, and examination preparation.</p>
+      </div>
+      <div class="srv-card reveal" style="transition-delay:.16s">
+        <div class="srv-icon" style="background:rgba(244,114,182,.12)">✏️</div>
+        <h3>Proofreading & Editing</h3>
+        <p>Professional editing of academic papers, manuscripts, and professional documents with keen attention to detail.</p>
+      </div>
+      <div class="srv-card reveal" style="transition-delay:.24s">
+        <div class="srv-icon" style="background:rgba(34,197,94,.12)">📊</div>
+        <h3>Data Entry & Documentation</h3>
+        <p>Efficient and accurate data processing, word processing, and professional document management.</p>
+      </div>
+      <div class="srv-card reveal" style="transition-delay:.32s">
+        <div class="srv-icon" style="background:rgba(251,191,36,.12)">🗣️</div>
+        <h3>Communication Training</h3>
+        <p>Spoken and written English coaching leveraging postgraduate literary expertise.</p>
+      </div>
+      <div class="srv-card reveal" style="transition-delay:.4s">
+        <div class="srv-icon" style="background:rgba(167,139,250,.12)">🔬</div>
+        <h3>Literary Research</h3>
+        <p>In-depth literary analysis, thematic studies, and research assistance for academic institutions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-wrap reveal">
+    <div class="section-label" style="justify-content:center"><span>Get In Touch</span></div>
+    <h2>Let's Connect</h2>
+    <p>Open to teaching, content, research, and professional opportunities. Feel free to reach out!</p>
+    <div class="contact-links">
+      <a class="contact-link" href="tel:+916235836901">📞 +91 6235836901</a>
+      <a class="contact-link" href="mailto:ananthalakshmibiju1@gmail.com">✉️ ananthalakshmibiju1@gmail.com</a>
+    </div>
+    <div class="address-box">
+      📍 Vellirippil House, Muttukad P.O, Bisonvalley, Idukki, Kerala – 685565
+    </div>
+    <div class="declaration">
+      <p>I hereby declare that all the above information provided is true to the best of my knowledge and belief.</p>
+      <div class="sig">— Ananthalakshmi Biju</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 <span>Ananthalakshmi Biju</span> · MA English Literature · All Rights Reserved</p>
+</footer>
+
+<script>
+// Mobile menu
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click', () => {
+  mobileMenu.classList.toggle('open');
+});
+function closeMobile() {
+  mobileMenu.classList.remove('open');
+}
+
+// Scroll reveal
+const revealEls = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.12 });
+revealEls.forEach(el => observer.observe(el));
+
+// Skill bar animation
+const skillFills = document.querySelectorAll('.skill-fill');
+const skillObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const fill = entry.target;
+      const width = parseFloat(fill.dataset.width);
+      fill.style.transform = `scaleX(${width})`;
+      fill.classList.add('animated');
+    }
+  });
+}, { threshold: 0.3 });
+skillFills.forEach(el => skillObserver.observe(el));
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+});
+
+// Nav highlight on scroll
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 120) current = s.id;
+  });
+  navLinks.forEach(a => {
+    a.style.color = a.getAttribute('href') === '#' + current ? '#a78bfa' : '';
+  });
+}, { passive: true });
+</script>
+</body>
+</html>
